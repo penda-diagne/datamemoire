@@ -6,7 +6,7 @@ from PIL import Image, ImageDraw
 import numpy as np
 import os
 import sys
-hdfs = PyWebHdfsClient(host='192.168.43.181',port='9870')  # your Namenode IP & username here
+hdfs = PyWebHdfsClient(host='192.168.43.56',port='9870',user_name='root')  # your Namenode IP & username here
 path_data_f0 = '/faari/F0'
 path_data_f4 = '/faari/F4'
 
