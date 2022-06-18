@@ -6,6 +6,7 @@ from PIL import Image, ImageDraw
 import numpy as np
 import os
 import sys
+from fibrose_import import Callback,EarlyStopping
 hdfs = PyWebHdfsClient(host='192.168.43.56',port='9870',user_name='root')  # your Namenode IP & username here
 path_data_f0 = '/faari/F0'
 path_data_f4 = '/faari/F4'
@@ -41,3 +42,10 @@ for i in full_files4:
      elif "f4" in i:
           i=i.replace(path_data_f4,"")
           datadf=datadf.append({"id":i,"path":path_data_f4,"label":1,"niveau fibrose":"F4-f4"},ignore_index=True)
+          
+early_stop_callback = EarlyStopping(
+   monitor='val_loss',
+   patience=3,
+   verbose=False,
+   mode='min'
+)
